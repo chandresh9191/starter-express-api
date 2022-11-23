@@ -13,6 +13,9 @@ module.exports = {
                 else {
                     db = module.exports = DClient.db('wallpaper');
                     console.log("Connected to Mongo DB : ",new Date());
+                    DClient.on('close',function () {
+                        console.log('Connection Close');
+                    });
                 }
             } catch (e) {
                 console.log("ConnectDatabase : Connection : Exception ", e);
